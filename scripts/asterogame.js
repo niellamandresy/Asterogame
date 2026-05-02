@@ -46,10 +46,9 @@ function update() {
     asteroides.forEach(a => {
     if (collision(vaisseau, a)) {
         etatJeu = "gameover";
-        if(!confirm("Would you restart the game ?")){
-            
-            window.location.href ='./hub.html';
-        }
+        !confirm("Would you restart the game ?") ?
+          window.location.href ='./index.html' :
+          window.location.href ='./asterogame.html';
     }
     });
 }
