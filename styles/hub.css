@@ -30,11 +30,12 @@ body {
     height: 25%;
 }
 
-.button-quit {
+.button-leave {
     position: absolute;
     bottom: 20px;
     right: 40px;
-    padding: 10px 30px;
+    padding: 0px 30px;
+    height: auto;
     width: auto;
 }
 

@@ -1,0 +1,35 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95dvh;
+}
+
+.content {
+    width: 60%;
+    height: 70%;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content h1 {
+    font-size: 4em;
+}
+
+.content-button {
+    height: 10%;
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    padding-inline: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle
+}

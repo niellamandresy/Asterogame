@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95dvh;
+}
+
+.content {
+    width: 60%;
+    height: 70%;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.content-table {
+    background-color: rgb(231, 231, 231);
+    width: 98%;
+    height: 58%;
+}
+
+#return-hub-button {
+    position : absolute;
+    top: 0;
+    right: 0;
+    padding: 0 10px;
+    margin: 5px;
+    border-style: none;
+    background-color: rgba(255, 0, 0, 0.808);
+    border-radius: 50%;
+}
+
+h1 {    
+    font-size: 3em;
+    margin: auto;
+}
