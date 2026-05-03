@@ -8,8 +8,28 @@ let droite = false;
 const vaisseau = { x: 400, y: 500, largeur: 40, hauteur: 40 };
 const asteroides = [];
 
+//life
+let life = 3;
+
 //user status
 let etatJeu = "playing"; // "playing" | "gameover"
+
+//Afficher les coeurs
+const heartPlace = document.getElementById('heart-place');
+
+//create Breakframe
+let animationFrameId;
+
+//Pause button
+let isPaused = false;
+const pauseButton = document.getElementById('pause-button');
+const pauseImage = document.getElementById('pause-image');
+
+//Popup pause
+const pausePopup = document.querySelector('.pause-popup');
+pausePopup.style.display = 'none';
+const resumeButton = document.getElementById('resume-button');
+const leaveButton = document.getElementById('leave-button');
 
 //Control
 document.addEventListener('keydown', (e) => {
@@ -45,10 +65,26 @@ function update() {
     //collision
     asteroides.forEach(a => {
     if (collision(vaisseau, a)) {
-        etatJeu = "gameover";
-        window.location.href ='./gameover.html';
+        life = life - 1;
+        if (life <= 0) {
+            etatJeu = "gameover";
+            window.location.href ='./gameover.html';
+        }
+        // Réinitialiser le vaisseau et les astéroïdes
+        vaisseau.x = 400;
+        vaisseau.y = 500;
+        asteroides.length = 0;
     }
     });
+
+    //Afficher les coeurs
+    heartPlace.innerHTML = '';
+    for (let i = 0; i < life; i++) {
+        const heart = document.createElement('img');
+        heart.src = './assets/icons/heart.png';
+        heart.classList.add('heart-icon');
+        heartPlace.appendChild(heart);
+    }
 }
 
 // 3. Draw — dessin pur, pas de logique ici
@@ -88,8 +124,34 @@ function collision(a, b) {
 function loop() {
   update();
   draw();
-  requestAnimationFrame(loop);
+  animationFrameId = requestAnimationFrame(loop);
 }
 
 //Lunch the game
-loop();
+animationFrameId = loop();
+
+pauseButton.addEventListener('click', () => {
+  if (isPaused) {
+    animationFrameId = loop();
+  } else {
+    cancelAnimationFrame(animationFrameId);
+    pauseButton.disabled = true;
+    pauseImage.classList.add('paused');
+    pausePopup.style.display == 'none' ? pausePopup.style.display = 'block' : pausePopup.style.display = 'none';
+  }
+  isPaused = !isPaused;
+});
+
+resumeButton.addEventListener('click', () => {
+  if (isPaused) {
+    animationFrameId = loop();
+    pausePopup.style.display = 'none';
+  }
+  isPaused = !isPaused;
+  pauseButton.disabled = false;
+  pauseImage.classList.remove('paused');
+});
+
+leaveButton.addEventListener('click', () => {
+  window.location.href ='./index.html';
+});

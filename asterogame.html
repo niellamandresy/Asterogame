@@ -4,9 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asterogame</title>
+    <link rel="stylesheet" href="./styles/asterogame.css">
 </head>
-<body>
-    <canvas id="theCanvas" width="800" height="600"></canvas>
+<body> 
+    <div class="content">
+        <canvas id="theCanvas" width="800" height="600"></canvas>
+        <div class="icons-heart">
+            <div id="heart-place"></div>
+        </div>
+        <button type="button" id="pause-button">
+            <img src="./assets/icons/pause.png" alt="Pause" width="40" height="40" id="pause-image">
+        </button>
+        <div class="pause-popup">
+            <h2>Game Paused</h2>
+            <button type="button" id="resume-button">Resume</button>
+            <button type="button" id="leave-button">Leave Game</button>
+        </div>
+    </div>
 </body>
 <script src="./scripts/asterogame.js"></script>
 </html>
