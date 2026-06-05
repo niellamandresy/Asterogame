@@ -1,30 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/hub.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="./assets/fonts/font.css" rel="stylesheet" />
+    <link href="./assets/fonts/font.css" rel="stylesheet" />
     <title>Asterogame</title>
 </head>
-    <body>
-        <div class="big-bloc">
-            <div class="button-bloc">
-                <button type="button" class="btn btn-primary" id="begin-button">
-                    <h2>Commencer</h2>
-                </button>
-                <button type="button" class="btn btn-primary" id="high-scores-button">
-                    <h2>Meilleure scores</h2>
-                </button>
+<body>
+    <main class="big-bloc">
+        <section class="hero-copy">
+            <p class="system-label">SOE // ASTROMETRY</p>
+            <h1>Astero</h1>
+            <div class="orange-band">
+                <span></span>
+                <strong>Asterogame</strong>
             </div>
-           
-            <button type="button" Quitter class="btn btn-secondary" id="quit-button">
-                Quitter
-            </button>
+        </section>
 
-        </div>
-        <script src="./scripts/hub.js"></script>
-    </body>
+        <nav class="button-bloc" aria-label="Menu principal">
+            <button type="button" class="btn btn-primary" id="begin-button">
+                <span>Commencer</span>
+            </button>
+            <button type="button" class="btn btn-primary" id="high-scores-button">
+                <span>Meilleurs scores</span>
+            </button>
+            <button type="button" class="btn btn-secondary" id="quit-button">Quitter</button>
+        </nav>
+    </main>
+    <script src="./scripts/hub.js"></script>
+</body>
 </html>
